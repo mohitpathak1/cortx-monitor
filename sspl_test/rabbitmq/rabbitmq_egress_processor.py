@@ -188,6 +188,7 @@ class RabbitMQegressProcessor(ScheduledModuleThread, InternalMsgQ):
             self._password      = self._conf_reader._get_value_with_default(self.RABBITMQPROCESSOR,
                                                                  self.PASSWORD,
                                                                  'sspl4ever')
+            logger.error(f"egress : read pw is {self._password}")
             self._signature_user = self._conf_reader._get_value_with_default(self.RABBITMQPROCESSOR,
                                                                  self.SIGNATURE_USERNAME,
                                                                  'sspl-ll')
@@ -211,6 +212,7 @@ class RabbitMQegressProcessor(ScheduledModuleThread, InternalMsgQ):
 
             self._cluster_id = self._conf_reader._get_value_with_default(
                 self.SYSTEM_INFORMATION, self.CLUSTER_ID, '')
+            logger.error(f"egress : read clusterid is {self._cluster_id}")
 
             self._site_id = self._conf_reader._get_value_with_default(
                 self.SYSTEM_INFORMATION, self.SITE_ID, '')
@@ -218,6 +220,7 @@ class RabbitMQegressProcessor(ScheduledModuleThread, InternalMsgQ):
             # Decrypt RabbitMQ Password
             decryption_key = encryptor.gen_key(self._cluster_id, ServiceTypes.RABBITMQ.value)
             self._password = encryptor.decrypt(decryption_key, self._password.encode('ascii'), "RabbitMQegressProcessor")
+            logger.error(f"egress : decrypted pw is {self._password}")
 
             if self._iem_route_addr != "":
                 logger.info("         Routing IEMs to host: %s" % self._iem_route_addr)
