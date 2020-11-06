@@ -21,6 +21,8 @@ from cortx.utils.kvstore.pillar import PillarStorage
 import subprocess
 import sys
 
+print("salt_util is running...")
+
 class SaltInterface:
     """
     Interface class to get common config from common pillar using
@@ -160,7 +162,9 @@ class SaltInterface:
                 print(f'salt_util, Failed to update consul host and port in {conf_file}')
             # Write the config to file
             with open(conf_file, 'w') as configfile:
+                print(f"current product is {self.config['SYSTEM_INFORMATION']['product']}")
                 self.config.write(configfile)
+                print('done writing conf file')
         except Exception as err:
             print(f'salt_util, Failed to update conf_file {conf_file} with error : {err}')
 
@@ -169,3 +173,4 @@ if __name__ == "__main__":
     conf_file = sys.argv[1]
     salt_util = SaltInterface()
     salt_util.update_config_file(conf_file)
+    sys.exit(0)
