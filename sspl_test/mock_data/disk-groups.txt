@@ -86,7 +86,20 @@
         "health-reason":"The disk group is not fault tolerant. Reconstruction cannot start because there is no spare disk available of the proper type and size.",
         "health-recommendation":"- For non-ADAPT disk groups, replace the disk with one of the same type (SSD, enterprise SAS, or midline SAS) and the same or greater capacity. For ADAPT disk groups, replace the disk with one of the same type. For continued optimum I/O performance, the replacement disk should have performance that is the same as or better than the one it is replacing.  - For non-ADAPT disk groups, configure the new disk as a spare so the system can start reconstructing the disk group.  - For ADAPT disk groups, expand the disk group to include the new disk as spare space.  - To prevent this problem in the future, configure one or more additional disks as spare disks in non-ADAPT disk groups, or increase the spare space size of ADAPT disk groups.  - If the disk group is being expanded, reconstruction will start after the expansion is complete."
       }
-    ]
+    ],
+        "status":[
+  {
+    "object-name":"status",
+"meta":"/meta/status",
+    "response-type":"Success",
+    "response-type-numeric":0,
+    "response":"Command completed successfully. (2019-07-08 11:10:21)",
+    "return-code":0,
+    "component-id":"",
+    "time-stamp":"2019-07-08 11:10:21",
+    "time-stamp-numeric":1562584221
+  }
+]
   },
     "status_code": 200
 }

@@ -167,7 +167,20 @@
         "volume-group":"UNGROUPEDVOLUMES",
         "group-key":"VGU"
       }
-    ]
+    ],
+      "status":[
+  {
+    "object-name":"status",
+"meta":"/meta/status",
+    "response-type":"Success",
+    "response-type-numeric":0,
+    "response":"Command completed successfully. (2019-07-08 11:10:21)",
+    "return-code":0,
+    "component-id":"",
+    "time-stamp":"2019-07-08 11:10:21",
+    "time-stamp-numeric":1562584221
+  }
+]
   },
     "status_code": 200
 }

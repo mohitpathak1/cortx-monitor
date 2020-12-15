@@ -28,6 +28,8 @@ def init(args):
     pass
 
 def test_real_stor_disk_sensor(agrs):
+    print("pausing sspl test for 1000sec")
+    time.sleep(1000)
     check_sspl_ll_is_running()
     disk_sensor_message_request("enclosure:fru:disk")
     disk_sensor_msg = None
